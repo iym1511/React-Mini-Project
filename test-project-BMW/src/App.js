@@ -5,7 +5,7 @@ import {Button, Container}  from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import NavComp from './components/NavComp';
 import NavbarComp from './components/NavbarComp';
-import CardComp from './components/CardComp';
+import CardComp from './SubCard/CardComp';
 // 그리드 컴포넌트
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -16,30 +16,12 @@ import Slider from "react-slick";
 // 폰트어썸
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // 아이콘 불러오기
-import { faEnvelope,faBagShopping, faAppleWhole } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faAppleWhole, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import CardComp2 from './SubCard/CardComp2';
+import CardComp3 from './SubCard/CardComp3';
+import MainCardComp from './MainCard/MainCardComp';
+import MainSlide from './MainCard/MainSlide';
 
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-      <FontAwesomeIcon 
-      icon={faAppleWhole} 
-      onClick={onClick}
-      className={className}
-      style={{color:"red"}}
-      />
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "green" }}
-      onClick={onClick}
-    />
-  );
-}
 
 
 function App() {
@@ -47,20 +29,22 @@ function App() {
   const settings = {
     dots: true,
     infinite: true,
+    speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />
-  };
+};
     
   return (
     <div className="App">
       <NavbarComp />
-      <CardComp />
+
+      <MainSlide />
+      <br></br><br></br>
+
       <Button variant="primary" onClick={()=>{alert("클릭")}}>
       <FontAwesomeIcon icon={faEnvelope} />
-      <FontAwesomeIcon icon={faBagShopping} />
-      <FontAwesomeIcon icon={faAppleWhole} />
       </Button>{' '}
       <Container>
         {/* 그리드 */}
@@ -72,23 +56,19 @@ function App() {
     <br></br>
       <Slider {...settings}>
           <div>
-            <h3>1</h3>
-            <CardComp />  {/** 카드를 넣어 슬라이드 사용 */}
+            <CardComp/>  {/** 카드를 넣어 슬라이드 사용 */}
           </div>
           <div>
-            <h3>2</h3>
+            <CardComp2 />
           </div>
           <div>
-            <h3>3</h3>
+            <CardComp3 />
           </div>
           <div>
-            <h3>4</h3>
           </div>
           <div>
-            <h3>5</h3>
           </div>
           <div>
-            <h3>6</h3>
           </div>
         </Slider>
         <div/>
@@ -99,3 +79,25 @@ function App() {
   );
 }
 export default App;
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+      <FontAwesomeIcon icon={faChevronRight} 
+      className={className} 
+      onClick={onClick}
+      style={{color:"#000000"}}
+      />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+      <FontAwesomeIcon icon={faChevronLeft} 
+      className={className} 
+      onClick={onClick}
+      style={{color:"#000000"}}
+      />
+  );
+}
