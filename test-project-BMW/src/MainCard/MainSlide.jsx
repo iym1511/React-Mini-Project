@@ -18,7 +18,7 @@ const MainSlide = () => {
     };
     return (  
         <div>
-        <Slider {...settings}>
+        <Slider {...settings1}>
             <div>
                 <MainCardComp />
             </div>

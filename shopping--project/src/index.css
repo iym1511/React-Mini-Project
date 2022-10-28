@@ -1,0 +1,106 @@
+body{
+  background-color: #131313;
+}
+
+.page{
+  position: absolute;
+  top: 79px;
+  bottom: 0;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 20px;
+
+  left: 50%;
+  transform: translate(-50%, 0);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  background-color: #131313;
+  
+}
+
+.titleWrap{
+  margin-top: 87px;
+  font-size: 26px;
+  font-weight: bolder;
+  color: rgb(253, 253, 253);
+}
+.contentWrap{
+  margin: auto;
+  flex: 1;
+}
+.inputTitle{
+  font-size: 12px;
+  font-weight: 600;
+  color: #131313;
+}
+.inputWrap{
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 8px;
+  background-color: white;
+  border: 1px solid rgb(194, 194, 194);
+}
+/* 인풋창 클릭하면 태두리색 바뀜 */
+.inputWrap:focus-within{
+  border: 1px solid rgb(35, 130, 253);
+}
+
+.input{
+  margin: auto;
+  width: 100%;
+  outline:  none;
+  border: none;
+  height: 17px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.input::placeholder{
+  color: rgb(192, 192, 192);
+}
+
+.errorMessageWrap {
+  margin-top: 8px;
+  color: rgb(206, 0, 0);
+  font-size: 15px;
+}
+
+.bottomButton{
+  width: 30%;
+  height: 48px;
+  border-radius: 30px;
+  border: none;
+  font-weight: bolder;
+  background-color: rgb(35, 130, 253);
+  color: white;
+  margin-bottom: 20px;
+  cursor: pointer;
+  
+}
+
+/* 버튼 비활성화일때 회색 */
+.bottomButton:disabled{
+  background-color: rgb(172, 172, 172);
+  color: white;
+}
+
+h1{
+  color: white;
+}
+p{
+  color: white;
+}
+.slick-slider{
+  margin-top: 50px;
+}
+.Login-Logo{
+  width: 100px;
+  margin: auto;
+  margin-top: 70px;
+}
+.card-img-overlay{}
