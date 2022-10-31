@@ -109,7 +109,7 @@ const Login = () => {
                 </div>
 
 
-                <div className="inputTitle" style={{marginTop:"26px"}}>비밀번호</div>
+                <div className="inputTitle" style={{marginTop:"10px"}}>비밀번호</div>
                 <div className="inputWrap">
                     <input className="input" 
                     type="password"

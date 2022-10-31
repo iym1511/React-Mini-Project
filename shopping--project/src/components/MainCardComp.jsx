@@ -13,8 +13,8 @@ function MainCardComp(card) {
         return (
             <> 
             <br/>
-            <Card className="bg-dark text-white">
-      <Card.Img src={card.image} alt="Card image" />
+            <Card className="bg-dark text-white" >
+      <Card.Img src={card.image} alt="Card image"/>
       <Card.ImgOverlay>
         <Card.Title>Card title</Card.Title>
         <Card.Text>

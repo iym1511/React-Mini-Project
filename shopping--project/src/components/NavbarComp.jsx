@@ -33,14 +33,20 @@ function NavbarComp() {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="#13131300" variant="dark" style={{background: "linear-gradient( to top, #13131300, #0e0e0e )"}}>
         <Container>
-          <Navbar.Brand>
+          <NavLink to="/" className="nav-link" style={{marginRight:"50px"}}>
             <img src="https://www.bmw.co.kr/etc.clientlibs/ds2-webcomponents/clientlibs/clientlib/resources/img/BMW_White_Logo.svg"  />
-          </Navbar.Brand>
+          </NavLink>
           <Nav className="me-auto">
             <NavLink to="/" className="nav-link">
               Home
+            </NavLink>
+            <NavLink to="/" className="nav-link">
+              소개
+            </NavLink>
+            <NavLink to="/" className="nav-link">
+              오시는 길
             </NavLink>
           </Nav>
           <Navbar.Collapse className="justify-content-end">

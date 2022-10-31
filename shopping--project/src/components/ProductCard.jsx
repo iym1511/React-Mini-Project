@@ -72,7 +72,8 @@ function ProductCard(props) {
   };
 
   return (
-    <Card style={{ width: '13rem' , display: "inline-block"}}>
+    <div>
+    <Card style={{ width: '20rem' , display: "inline-block", backgroundColor: "#181818", color:"white"}}>
         {/** 이미지를 들고올때 변수 사용시 require 사용 */}
       <Card.Img 
       onClick={()=>{navigate("/product/"+product.productId)}}
@@ -80,11 +81,14 @@ function ProductCard(props) {
       <Card.Body>
         <Card.Title>{product.productName}</Card.Title>
         {/** 로그인이 되어있다면, 버튼을 클릭했을때 유저의 likelist에 추가하기 */}
-        <Button variant="outline-primary" onClick={ toggleLike }>
+        <Button variant="outline-light" onClick={ toggleLike } style={{border:"1px solid white"}}>
+            <div className='JJim'> My List </div>
             <FontAwesomeIcon icon={ likeCheck ? activeHeart : disactiveHeart} />
+            
         </Button>
       </Card.Body>
     </Card>
+    </div>
   );
 }
 
