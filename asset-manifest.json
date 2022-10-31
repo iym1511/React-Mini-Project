@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/iym1511/React-Mini-Project/static/css/main.25f4f6a3.css",
+    "main.js": "/iym1511/React-Mini-Project/static/js/main.afbef10c.js",
+    "static/js/787.a61f225c.chunk.js": "/iym1511/React-Mini-Project/static/js/787.a61f225c.chunk.js",
+    "static/media/main.jpg": "/iym1511/React-Mini-Project/static/media/main.72cee254bf08f064cb99.jpg",
+    "static/media/desc.jpg": "/iym1511/React-Mini-Project/static/media/desc.47bc12a2eb16b8107a06.jpg",
+    "static/media/desc3.jpg": "/iym1511/React-Mini-Project/static/media/desc3.4578797eb36239e42ebf.jpg",
+    "static/media/desc2.jpg": "/iym1511/React-Mini-Project/static/media/desc2.e48aec6c4015252c47c8.jpg",
+    "static/media/1-2.png": "/iym1511/React-Mini-Project/static/media/1-2.9526f621c835e2dfb687.png",
+    "static/media/1.png": "/iym1511/React-Mini-Project/static/media/1.11489b1201f17706ea56.png",
+    "static/media/1.jpg": "/iym1511/React-Mini-Project/static/media/1.4269dcc37e4d90999364.jpg",
+    "static/media/slick.svg": "/iym1511/React-Mini-Project/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/iym1511/React-Mini-Project/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/iym1511/React-Mini-Project/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/iym1511/React-Mini-Project/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/iym1511/React-Mini-Project/index.html",
+    "main.25f4f6a3.css.map": "/iym1511/React-Mini-Project/static/css/main.25f4f6a3.css.map",
+    "main.afbef10c.js.map": "/iym1511/React-Mini-Project/static/js/main.afbef10c.js.map",
+    "787.a61f225c.chunk.js.map": "/iym1511/React-Mini-Project/static/js/787.a61f225c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.25f4f6a3.css",
+    "static/js/main.afbef10c.js"
+  ]
+}
