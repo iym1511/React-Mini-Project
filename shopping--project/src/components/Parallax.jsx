@@ -66,7 +66,6 @@ export default function Parallax() {
           <p style={{opacity: (position - 1660) / 450}}>◦ 하이브리드 전용 M xDrive 사륜구동 시스템</p>
           <p style={{opacity: (position - 1760) / 450}}>◦ 80km 순수 전기주행*, 653마력*, 81.6 kg.m토크*</p>
           </div>
-        
         </div>
       <p
         className="desc3"
@@ -74,7 +73,6 @@ export default function Parallax() {
           opacity: (position - 1650) / 450,
         }}
       >
-        <h3>BMW XM</h3>
       </p>
       <p
         className="desc3"
@@ -82,7 +80,7 @@ export default function Parallax() {
           opacity: (position - 1750) / 450,
         }}
       >
-        <p>BMW 최초의 M 전용 초고성능</p>  
+
       </p>
       <p
         className="desc3"
@@ -90,7 +88,7 @@ export default function Parallax() {
           opacity: (position - 1850) / 450,
         }}
       >
-        변속기: 8단 자동
+
       </p>
       <p
         className="desc3"
@@ -98,10 +96,6 @@ export default function Parallax() {
           opacity: (position - 1950) / 450,
         }}
       >
-        최고출력(HP/RPM): 190/4,000<br></br>
-        정부 공인 표준 연비: 15.0km/l<br></br>
-        등급: 2등급<br></br>
-        Co2 배출량: 125g/km
       </p>  
       </div>
       <div className="scroll-down"></div>

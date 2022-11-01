@@ -23,7 +23,7 @@ const Profile = () => {
                     <hr></hr>
                     <h2>찜 목록</h2>
                     <ul>
-                        {state.user.likelist.map((like)=>(<li>{like.productName}</li>))}
+                        {state.user.likelist.map((like)=>(<li>{like.productPicture}{like.productName}</li>))}
                     </ul>
                     </Col>
                 </Row>
