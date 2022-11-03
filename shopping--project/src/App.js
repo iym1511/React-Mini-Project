@@ -14,15 +14,15 @@ import Home from "./page/Home";
 import Login from "./page/Login";
 import ProductDetaile from "./page/ProductDetail";
 import Profile from "./page/Profile";
-
+import Map from "./Map/Map";
 function App() {
   return (
     <div className="App">
       <DataProvider>
         <Routes>
-          
+        <Route index element={<Home />}></Route>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />}></Route>
+            
             <Route path="loginform" element={<Login />}></Route> 
             <Route path="product/:id" element={<ProductDetaile />}></Route>
             <Route path="mypage" element={<Profile/>}></Route>

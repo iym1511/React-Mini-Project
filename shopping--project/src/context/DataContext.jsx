@@ -11,8 +11,14 @@ const DataContext = createContext();
 const DataProvider = ({children}) => {
     // 사용할 값들을 useState를 통해 값을 들고옴
     // 유저정보  {name: "홍길동", profile : 사진, likelist : [] }
-    const [user, setUser] = useState({name: "이재용", profile : null, likelist : [] });
+    const [user, setUser] = useState({name: "이재용",birthday: "1998년 01월 01일", profile : null, likelist : [] });
     
+    const [mysave, setMysave] = useState([
+        {
+            profileName : "문일윤"
+        }
+    ])
+
     // 상품정보 : 상품배열로 들어감
     const [productList, setProductList] = useState([
         {
@@ -22,7 +28,7 @@ const DataProvider = ({children}) => {
             productMoney : "$ 66,400,000",
             productDetail : "BMW i4 M50 ",
             productColor : ["white", "#123DB3"],
-            productPicture : ["3.jpg", "2.jpg" ]
+            productPicture : ["3.jpg", "2.jpg"]
         },
         {
             productId : 2,
@@ -49,16 +55,16 @@ const DataProvider = ({children}) => {
     // 댓글정보
     const [allComments, setAllComments] = useState([
         {
-            commentId : 1,
+             commentId : 1,
             productId : 1,
-            name : "팀쿡",
+            name : "이재용",
             text : "좋은 차량입니다"
         },
         {
-            commentId : 2,
+            /* commentId : 2,
             productId : 1,
             name : "이재용",
-            text : "괜찮습니다"
+            text : "괜찮습니다" */
         }
     ])
     const [commentCount, setCommentCount] = useState(3);
