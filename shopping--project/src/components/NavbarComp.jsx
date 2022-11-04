@@ -28,7 +28,7 @@ function NavbarComp() {
 	const logOut = () => {
 		setLogin(false) // 컴포넌트를 바꾸주기 위해 수정
 		// userd의 값을 null로 바꿔줌
-		data.action.setUser(null);
+		data.action.setUser("");
 		// 다른곳에서 로그아웃을해도 항상 홈으로 돌아감
 		navigate("/");
     

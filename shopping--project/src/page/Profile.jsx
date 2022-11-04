@@ -34,7 +34,8 @@ const Profile = () => {
                     <hr></hr>
                     <h2 className="like-title">찜 목록</h2>
                     <ul className="like-list">
-                        {state.user.likelist.map((like)=>(<li className="like-name">{like.productName}</li>))}
+                    {state.user.likelist.map((like)=>(<li className="like-name">{like.productName}</li>))}
+                    
                     </ul>
                     <footer className="footer">
                         <img src="https://www.bmw.co.kr/etc.clientlibs/ds2-webcomponents/clientlibs/clientlib/resources/img/BMW_White_Logo.svg" alt="" />

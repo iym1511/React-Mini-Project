@@ -20,13 +20,12 @@ function App() {
     <div className="App">
       <DataProvider>
         <Routes>
-        <Route index element={<Home />}></Route>
-          <Route path="/" element={<Layout />}>
-            
-            <Route path="loginform" element={<Login />}></Route> 
-            <Route path="product/:id" element={<ProductDetaile />}></Route>
-            <Route path="mypage" element={<Profile/>}></Route>
-          </Route>
+              <Route index element={<Home />}></Route>
+            <Route path="/" element={<Layout />}>
+              <Route path="loginform" element={<Login />}></Route> 
+              <Route path="product/:id" element={<ProductDetaile />}></Route>
+              <Route path="mypage" element={<Profile/>}></Route>
+            </Route>
 
         </Routes>
       </DataProvider>

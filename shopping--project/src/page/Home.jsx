@@ -80,10 +80,9 @@ const Home = () => {
     const logOut = () => {
         setLogin(false) // 컴포넌트를 바꾸주기 위해 수정
         // userd의 값을 null로 바꿔줌
-        data.action.setUser(null);
+        data.action.setUser("");
         // 다른곳에서 로그아웃을해도 항상 홈으로 돌아감
         navigate("/");
-    
     }
 
     // 특정위치로 스크롤 이동
@@ -153,7 +152,7 @@ const Home = () => {
                     ) : (
                     <div>
                         {/** 로그인이 되지 않았을때 출력될 컴포넌트 */}
-                        <Button variant="outline-light" onClick={()=>{navigate('/loginform')}} style={{border:"1px solid white", width:"70px", height:"50px"}}>Login</Button>{" "}
+                        <Button variant="outline-light" onClick={()=>{navigate('/loginform')}} style={{border:"1px solid white", width:"70px", height:"50px", marginBottom:"30px"}}>Login</Button>{" "}
                     </div>
                     )}
                 </Navbar.Collapse>
@@ -240,13 +239,13 @@ const Home = () => {
                             <img src={require('../img/insta.jpg')} className="insta-img" />
                         </a>
                     </div>
-                    <div className="insta-Card">
+                    <div className="insta-Card2">
                         <a href="https://www.instagram.com/p/Cb7Mf66vC37/?utm_source=ig_web_copy_link">
                             <img src={require('../img/insta2.jpg')} className="insta-img" />
                             <p>instagram</p>
                         </a>
                     </div>
-                    <div className="insta-Card">
+                    <div className="insta-Card3">
                         <a href="https://www.instagram.com/p/CaTXkShvzRt/?utm_source=ig_web_copy_link">
                             <img src={require('../img/insta3.jpg')} className="insta-img" />
                         </a>
