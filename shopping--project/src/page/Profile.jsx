@@ -5,11 +5,11 @@ import ProfileUpdateModal from "../components/ProfileUpdateModal"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faFacebook, faInstagram,faYoutube } from '@fortawesome/free-brands-svg-icons'
 
-const Profile = () => {
+const Profile = ({onRemove}) => {
     const {state} = useContext(DataContext);
     return (  
         <div>
-            <Container >
+            <Container>
                 <Row style={{color:"white",height:"100vh"}}>
                     <Col s>
                     {/* 프로필 사진과 사진을 수정할 모델창 */}
@@ -34,7 +34,16 @@ const Profile = () => {
                     <hr></hr>
                     <h2 className="like-title">찜 목록</h2>
                     <ul className="like-list">
-                    {state.user.likelist.map((like)=>(<li className="like-name">{like.productName}</li>))}
+                    {
+                        state.user.likelist.map((like)=>(<li className="like-name" >
+                            <div className="product-list">
+                                {like.productName}
+                                <img src={require(`../img/${like.productPicture[0]}`)}></img>
+                                {like.productMoney}
+                            </div>
+                            
+                        </li>))
+                    }
                     
                     </ul>
                     <footer className="footer">

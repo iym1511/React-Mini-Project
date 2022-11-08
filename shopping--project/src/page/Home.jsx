@@ -30,10 +30,9 @@ import {useRef, useState } from "react";
 import ScrollToTop from "../components/ScrollToTop";
 
 
-
 const { kakao } = window;
 
-const Home = () => {
+const Home = ({menu, movePage}) => {
     const settings = {
         dots: false,
         infinite: true,
@@ -101,9 +100,8 @@ const Home = () => {
 
     return (  
         <div>
-            
+
             {/* 네브바 */}        
-            <ScrollToTop />
             <div className="hero">
             </div>
             <Navbar bg="#13131300" variant="dark" style={{background: "linear-gradient( to top, #00000000, #0e0e0e )",height:"100px"}}>
@@ -253,8 +251,8 @@ const Home = () => {
                 </div>
 
                 <p className="map-Title" ref={map}>오시는길</p>
-
                     <Map />
+                    <ScrollToTop />
             </div>
             
                                 
@@ -266,7 +264,8 @@ const Home = () => {
                 <a href="https://www.instagram.com/bmw_korea/"><FontAwesomeIcon icon={faInstagram} className="footer-img"/></a>
                 <a href="https://www.youtube.com/c/bmwkorea"><FontAwesomeIcon icon={faYoutube} className="footer-img"/></a>
             </footer>
-        </div>
+            
+            </div>
     );
 }
 

@@ -20,11 +20,11 @@ const ScrollToTop = () => {
         behavior: "smooth",
         });
     };
-    return (
+    return setShowScrollTopButton && (
         <div>
-        
+            <button className = "top" onClick={scrollTop} type="button">Top</button>
         </div>
     );
-    };
+};
 
 export default ScrollToTop;
