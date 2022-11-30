@@ -3,11 +3,17 @@ import './App.css';
 import StateBox from './components/StateBox';
 import PropsParent from './components/PropsParent';
 import TestState from './components/TestState';
+import EventBox from './components/EventBox';
+import TestEvent from './components/TestEvent';
 
 function App() {
   return (
     <div className="App">
+      <StateBox />
       <TestState />
+      <EventBox />
+      <hr />
+      <TestEvent/>
     </div>
   );
 }
