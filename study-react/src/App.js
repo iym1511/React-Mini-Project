@@ -1,10 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import StateBox from './components/StateBox';
-import PropsParent from './components/PropsParent';
+
 import TestState from './components/TestState';
 import EventBox from './components/EventBox';
 import TestEvent from './components/TestEvent';
+import EventOBJ from './components/EventOBJ';
+import TestBox from './components/TestBox';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <EventBox />
       <hr />
       <TestEvent/>
+      <hr />
+      <EventOBJ />
     </div>
   );
 }
