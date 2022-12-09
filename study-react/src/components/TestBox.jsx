@@ -57,7 +57,7 @@ import { useState } from "react";
                 }}>수정완료</button> 
             </div>
             ):
-            (// 버튼을 누르면 modify가 true
+            (// 버튼을 누르면 modify가 truey
             <button onClick={()=>{setModify(true)}}>수정</button>
             )
         }

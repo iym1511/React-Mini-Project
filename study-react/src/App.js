@@ -7,17 +7,37 @@ import EventBox from './components/EventBox';
 import TestEvent from './components/TestEvent';
 import EventOBJ from './components/EventOBJ';
 import TestBox from './components/TestBox';
+import Hook from './components/Hook';
+import TestHook from './components/TestHook';
+import APIComp from './components/APIComp';
+import TestAPI from './components/TestAPI';
+import RootIndex from './page/RootIndex';
+import TestRootIndex from './page/TestRootIndex';
+import StoreIndex from './Redux/StoreIndex';
 
 function App() {
   return (
     <div className="App">
-      <StateBox />
+      {/* <StateBox />
       <TestState />
       <EventBox />
       <hr />
       <TestEvent/>
       <hr />
       <EventOBJ />
+      <hr />
+      <Hook />
+      <hr />
+      <TestHook />
+      <hr />
+      <APIComp /> 
+      <TestAPI />
+      <hr />
+      <TestRootIndex/>
+      <hr />
+      <RootIndex />
+      */}
+      <StoreIndex />
     </div>
   );
 }
