@@ -14,6 +14,7 @@ import TestAPI from './components/TestAPI';
 import RootIndex from './page/RootIndex';
 import TestRootIndex from './page/TestRootIndex';
 import StoreIndex from './Redux/StoreIndex';
+import ReduxToolkitIndex from './ReduxToolkit/ReduxToolkitIndex';
 
 function App() {
   return (
@@ -36,8 +37,11 @@ function App() {
       <TestRootIndex/>
       <hr />
       <RootIndex />
-      */}
+      <hr/>
       <StoreIndex />
+      <hr />
+      */}
+      <ReduxToolkitIndex />
     </div>
   );
 }
