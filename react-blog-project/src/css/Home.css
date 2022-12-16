@@ -11,3 +11,17 @@
 .Home_main p{
     font-family: '궁서';
 }
+
+.Home_Link{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+.Home_Link a{
+    text-decoration: none;
+    color: aliceblue;
+    margin: auto 10px;
+}

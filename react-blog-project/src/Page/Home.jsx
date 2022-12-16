@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import Slider from 'react-slick';
+import HomeLink from "../components/HomeLink";
 import '../css/Home.css';
 
 const Home = () => {
@@ -51,8 +52,8 @@ const Home = () => {
         arrows : false,
         infinite: true,
         autoplay:true,
-        speed: 1000,
-        autoplaySpeed: 100,
+        speed: 1600,
+        autoplaySpeed:700,
         slidesToShow: 1,
         slidesToScroll: 1
     };
@@ -108,6 +109,7 @@ const Home = () => {
         <p>{printWord.author}</p>
       </div>
 
+        <HomeLink></HomeLink>
     </div>
     );
 }
