@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import {
@@ -9,8 +10,16 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../modules/currentUser";
+
+// css
+import '../css/loginForm.css'
 
 const LoginForm = () => {
+  // 리덕스의 리듀서를 사용하기위한 디스패치
+  const dispatch = useDispatch();
+
   // 페이지를 이동하기위한 navigate();
   const navigate = useNavigate();
 
@@ -28,6 +37,8 @@ const LoginForm = () => {
         // Signed in 회원가입성공
         const user = userCredential.user;
         console.log(user);
+        // 로그인할때
+        dispatch(userLogin(user));
         navigate("/");
       })
       .catch((error) => {
@@ -51,6 +62,8 @@ const LoginForm = () => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
+        // 로그인할때
+        dispatch(userLogin(user));
         navigate("/");
       })
       .catch((error) => {
@@ -85,7 +98,10 @@ const LoginForm = () => {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        console.log(user)
+        console.log(user);
+        // 로그인할때
+        dispatch(userLogin(user));
+        navigate("/");
       })
       .catch((error) => {
         // Handle Errors here.
@@ -95,46 +111,60 @@ const LoginForm = () => {
         const email = error.customData.email;
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
-        console.log(errorCode, errorMessage)
+        console.log(errorCode, errorMessage);
       });
   };
 
   return (
     <div>
-      <Form onSubmit={onsubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>이메일</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
+      <Container>
+        <Row>
+          <Col>
+          <Button onClick={emailCreate} className='create_button'>
+              위 이메일과 비밀번호로 회원가입
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={1}></Col>
+          <Col xs={10}>
+            <Form onSubmit={onsubmit}>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>이메일</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
+                <Form.Text className="text-muted">
+                  We'll never share your email with anyone else.
+                </Form.Text>
+              </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>비밀번호</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
-        <Button variant="primary" type="submit">
-          로그인
-        </Button>
-      </Form>
-      <Button onClick={emailCreate}>위 이메일과 비밀번호로 회원가입</Button>
-      <Button onClick={googleLogin}>구글로 로그인</Button>
-      {email}
-      {password}
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>비밀번호</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+              </Form.Group>
+              <Form.Group
+                className="mb-3"
+                controlId="formBasicCheckbox"
+              ></Form.Group>
+              <Button variant="primary" type="submit" className="my_margin_auto">
+                로그인
+              </Button>
+            </Form>
+            <Button onClick={googleLogin}>구글로 로그인</Button>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };

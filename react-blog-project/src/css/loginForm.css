@@ -1,0 +1,19 @@
+.create_button{
+    position: relative;
+    float: right;
+    /* 아래쪽의 다른 컴포넌트, 태그에
+        both:clear를 넣어서 float 영향을 받지않게
+    */
+}
+.my_margin_auto{
+    margin: auto;
+    background-color: blueviolet;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.my_margin_auto:hover{
+    color: black;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: aliceblue;
+    transition: 0.4s;
+}
