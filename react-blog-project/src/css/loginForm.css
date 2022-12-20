@@ -17,3 +17,9 @@
     background-color: aliceblue;
     transition: 0.4s;
 }
+.my_center{
+    text-align: center;
+}
+.hint_text{
+    color: grey;
+}

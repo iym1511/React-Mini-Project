@@ -117,11 +117,11 @@ const LoginForm = () => {
 
   return (
     <div>
-      <Container>
+      <Container className="mt-5">
         <Row>
           <Col>
-          <Button onClick={emailCreate} className='create_button'>
-              위 이메일과 비밀번호로 회원가입
+          <Button variant="link" onClick={emailCreate} className='create_button'>
+              위 정보로 회원가입
             </Button>
           </Col>
         </Row>
@@ -157,11 +157,15 @@ const LoginForm = () => {
                 className="mb-3"
                 controlId="formBasicCheckbox"
               ></Form.Group>
-              <Button variant="primary" type="submit" className="my_margin_auto">
-                로그인
-              </Button>
+
+              <div className="my_center">
+              <Button variant="primary" type="submit">로그인</Button>
+                <hr />
+                <p className="hint_text">소셜아이디로 로그인</p>
+                <Button variant="outline-danger" onClick={googleLogin}>구글로 로그인</Button>
+            </div>
             </Form>
-            <Button onClick={googleLogin}>구글로 로그인</Button>
+           
           </Col>
         </Row>
       </Container>

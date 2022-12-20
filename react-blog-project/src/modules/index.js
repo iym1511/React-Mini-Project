@@ -4,6 +4,7 @@ import {combineReducers} from "redux"
 
 // 리덕스 모듈 연결
 import currentUser from "./currentUser";
+import guest from "./guest";
 
-const rootReducer = combineReducers({currentUser});
+const rootReducer = combineReducers({currentUser, guest});
 export default rootReducer;
