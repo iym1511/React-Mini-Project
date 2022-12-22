@@ -3,7 +3,7 @@
 const initalState = [
     {
         boardId :1, 
-        userEmail : "hjseong1222@naver.com", 
+        userEmail : "iym1511@naver.com", 
         title : "첫 게시물입니다",
         content : "문자만들어갈수 있는 공간입니다",
         view : 0,
@@ -12,7 +12,7 @@ const initalState = [
     },
     {
         boardId : 2, 
-        userEmail : "hjseong1222@naver.com", 
+        userEmail : "mooniy1511@gmail.com", 
         title : "두번째 게시글",
         content : "두번째 글입니다",
         view : 0,
