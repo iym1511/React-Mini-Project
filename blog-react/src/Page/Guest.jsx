@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addGuest } from "../modules/guest";
+import { addGuest} from "../modules/guest";
 
 import { Button, Card, FloatingLabel, Form, ListGroup } from "react-bootstrap";
 
@@ -13,6 +13,7 @@ const Guest = () => {
 
   const [name, setName] = useState( currentUser ? currentUser.email : "익명");
   const [text, setText] = useState();
+  const test = useSelector((state)=> state.guest.name)
 
   return (
     <div className="mx-5 mt-5">
@@ -44,13 +45,15 @@ const Guest = () => {
       </FloatingLabel>
 
       {/** 버튼을 클릭했을때 리듀서에 내용을 추가 */}
+      {/* 테스트로 name 가져가기 */}
       <Button
         onClick={() => {
           dispatch(addGuest({ name: name, text: text }));
         }}
       >
-        작성
+        작성{name}
       </Button>
+      
       <hr />
 
       <Card style={{ width: "100%" }}>

@@ -6,8 +6,9 @@ const initalState = [
     {guestId : 2, name :"red", text:"들렸다갑니다"},
     {guestId : 3, name : "yellow", text:"들럿다감"}
 ]
-// 값을 구분하기 위한 id 
-let guestIdId= 1;
+// 값을 구분하기 위한 id
+// 값이 늘어나기만하면됨 숫자크기상관 x 
+let guestIdId = 1;
 
 // 리듀서
 function guest (state = initalState, action) {
@@ -24,6 +25,11 @@ function guest (state = initalState, action) {
             // concat을 통해 사용
             const newGuestArray = state.concat(newGest);
             return newGuestArray;
+
+        // 테스트로 name 가져가기
+        case "test" : 
+            return {...state, name : state.name}
+        
         default :
             return state;
     }
@@ -31,5 +37,6 @@ function guest (state = initalState, action) {
 
 // 액션함수
 export const addGuest = (guest)=>({type:"addGuest", payload:guest});
+export const test = ()=>({type:"test"}); // 테스트로 name 가져가기
 
 export default guest;
