@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 const Board = () => {
     
   const boardList = useSelector((state) => state.board);
+
+  // 글쓰기를 위해 로그인여부를 가져옴
+  const user = useSelector((state) => state.currentUser);
+
   // navigate를 사용하기위해 useNavigate사용
   const navigate = useNavigate();
   
@@ -17,6 +21,9 @@ const Board = () => {
 
   return (
   <div>
+    { // user의 값이 참일때만 띄워줌
+      user &&  <button onClick={()=>{navigate('/board/writeform')}}>글쓰기</button>
+    }
     <Table striped>
       <thead>
         <tr>
