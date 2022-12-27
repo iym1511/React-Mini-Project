@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import { Button, Card, Col, Container, FloatingLabel, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { deleteBoard, updateView } from "../modules/board";
+import { addLikeUser, deleteBoard, updateView } from "../modules/board";
 import { addComment } from "../modules/comments";
+import { addLikeBoard } from "../modules/userInfoList";
 
 const BoardPage = () => {
   // params을 통해서 board의 boardId값 전달
@@ -44,23 +46,25 @@ const BoardPrint = ({ board }) => {
   const [commentText, setCommentText] = useState("");
 
   // userEmail을 가져오기 위해서 selector 사용
-  const  userEmail = useSelector((state)=>(state.currentUser.email))
+  // * user로 수정 > 로그인하지않았을때 글을 볼수 있기때문
+  // * user의 값이 null이라면 코멘트를 달 수 없게 수정
+  const user = useSelector((state)=>(state.currentUser));
 
-  // commentInput에 버튼에 들어갈 함수
+  // commetInput에 버튼에 들어갈 함수
   const onAddComment = () => {
-    // 리덕스를 사용해서 그 값을 전달 
-    // > boardId, userEmail, commentText
-    // commentText 비워줌
+    // 리덕스를 사용해서 그 값을 전달
+    //  > boardId, userEmail, commentText
     dispatch(addComment(
-        {
-            boardId : board.boardId,
-            userEmail : userEmail,
-            text : commentText
-        }
+      {
+        boardId : board.boardId,
+        userEmail : user.email,
+        text : commentText
+      }
     ))
-    // commentText 비워줌
-    setCommentText("")
-  }
+    // commnentText 비워줌
+    setCommentText("");
+  } 
+
 
   // comments값 가져오기
   const comments = useSelector((state) => state.comments);
@@ -78,6 +82,27 @@ const BoardPrint = ({ board }) => {
     navigate("/board/modifyform", { state: board });
   };
 
+  // 좋아요 함수 
+  const onAddLike = () => {
+    // **로그인되지않았다면, dispatch가 되지않게 막기
+    if (!user) {
+      return alert("좋아요는 로그인 후에 할수 있습니다")
+    }
+    // 전달값 : userEmail, boardId, title
+    
+    const boardlike = {
+      userEmail: user.email, 
+      boardId :board.boardId, 
+      title : board.title
+    }
+    dispatch(addLikeBoard(boardlike));
+    const userlike = {
+      boardId : board.boardId,
+      userEmail: user.email
+    }
+    dispatch(addLikeUser(userlike));
+  }
+
   return (
     <Container>
       <Row>
@@ -85,22 +110,18 @@ const BoardPrint = ({ board }) => {
         <Col>
           <h2>{board.title}</h2>
         </Col>
-        <Col>
-          <Button
-            onClick={() => {
-              toModifyBoard(board);
-            }}
-          >
-            수정
-          </Button>
-          <Button
-            onClick={() => {
-              onDeleteBoard(board.boardId);
-            }}
-          >
-            삭제
-          </Button>
-        </Col>
+        {
+          user && user.email === board.userEmail &&
+          <Col>
+            <Button onClick={() => {toModifyBoard(board);}}>
+              수정
+            </Button>
+            <Button onClick={() => {onDeleteBoard(board.boardId);}}>
+              삭제
+            </Button>
+          </Col>
+        }
+        
       </Row>
       <Row>
         <Col>{board.userEmail}</Col>
@@ -115,22 +136,29 @@ const BoardPrint = ({ board }) => {
           <span>조회수 {board.view}</span>
         </Col>
         <Col>
-          <span>좋아요 {board.like}</span>
+          <span onClick={onAddLike}>좋아요 {board.like.length}</span>
         </Col>
       </Row>
       <hr />
       <Row>
-        <CommentInput commentText={commentText}
+        {
+          user ? 
+          <CommentInput 
+            commentText={commentText} 
             setCommentText={setCommentText}
             onAddComment={onAddComment}
-        />
+          /> :
+          <p>로그인을 하시면 코멘트를 작성하실 수 있습니다</p>
+        }
+
       </Row>
       <Row>
         {
-          // 코멘트에서 boardId가 같은 것만 출력
-          // 처음 값이 null과 nudifined일때 그대로 사용해도 ok
-          // 처음값이 배열이거나, 객체일 경우, length를 이용하여 확인
-          // 처음값이 객체일 경우
+          /** 코멘트에서 boardId가 같은 것만 출력 */
+          /** 처음 값이 null과 undefined일때 그대로 사용해도 ok
+           * 처음값이 배열일 경우, length을 이용하여 확인
+           * 처음값이 객체일 경우, 속성값으로 들어가서 확인
+           */
           boardComments.length > 0 ? (
             boardComments.map((comment) => <CommentBox comment={comment} />)
           ) : (
@@ -153,19 +181,19 @@ function CommentBox({ comment }) {
   );
 }
 
-function CommentInput({commentText, setCommentText, onAddComment}) {
-    return (
-      <>
-        <FloatingLabel controlId="floatingTextarea2" label="Comments">
-          <Form.Control
-            as="textarea"
-            placeholder="Leave a comment here"
-            value={commentText}
-            onChange={(e)=>{setCommentText(e.target.value)}}
-            style={{ height: '100px' }}
-          />
-        </FloatingLabel>
-        <Button onClick={onAddComment}>코멘트 작성</Button>
-      </>
-    );
-  }
+function CommentInput({ commentText,setCommentText, onAddComment}) {
+  return (
+    <>
+      <FloatingLabel controlId="floatingTextarea2" label="Comments">
+        <Form.Control
+          as="textarea"
+          placeholder="Leave a comment here"
+          value={commentText}
+          onChange={(e)=>{setCommentText(e.target.value)}}
+          style={{ height: "100px" }}
+        />
+      </FloatingLabel>
+      <Button onClick={onAddComment}>코멘트 작성</Button>
+    </>
+  );
+}

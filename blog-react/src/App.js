@@ -11,6 +11,8 @@ import Board from './Page/Board';
 import BoardPage from './Page/BoardPage';
 import BoardWriteFrom from './Page/BoardWirteFrom';
 import BoardAddFrom from './Page/BoardAddFrom';
+import MyPage from './Page/Mypage';
+
 
 // Routes와 Route를 이용하여 화면 관리
 function App() {
@@ -24,7 +26,8 @@ function App() {
         <Route path='/board' element={<Board />}></Route>
         <Route path='/board/:id' element={<BoardPage />}></Route>
         <Route path='/board/modifyform' element={<BoardWriteFrom />}></Route>
-        <Route path='/board/writeform' element={<BoardAddFrom />}></Route>
+        <Route path='/board/writeform' element={<BoardAddFrom/>}></Route>
+        <Route path='/mypage' element={<MyPage />}></Route>
       </Routes>
     </div>
   );
