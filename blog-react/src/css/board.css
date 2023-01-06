@@ -1,0 +1,11 @@
+/*board 공간에서 사용할 내용*/
+.board-button{
+    background-color: darkorange;
+    border:1px solid darkorange;
+    transition: all 0.5s;
+}
+.board-button:hover{
+    background-color: rgba(255, 140, 0, 0.479);
+    border:1px solid rgba(255, 140, 0, 0.479);
+    transition: all 0.5s;
+}
