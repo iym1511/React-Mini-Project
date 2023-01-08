@@ -1,69 +1,38 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from '@reduxjs/toolkit'
 
-const initialStateValue = {
-    filterType: 'all',
-    items: [],
-}
+let nextId = 0;
+// const name = "todo"; name 값도 이렇게 가능
+const initialState = [];
 
-export const todosSlice = createSlice({
-    name:"todos",
-    initialState: {value : initialStateValue},
+// redux-toolkit 불변의 법칙 name / initialState / reducer 
 
-    add: {
-        reducer: (state,action)=> {
-            state.items.push(action.payload)
-            }
-        },
-    // payload를 한번 거치는 미들웨어같은함수 action을 dispatch할때 
-    // action은 매개변수를 받는데, 이 매개변수의 값을 전처리 하는 역할
-    prepare: text => {
-        return{
-            payload: {
-                id: ++uniqId,
-                done: false,
-                text,
-            },
-        }
+export const todoSlice = createSlice({
+    name : 'todo', // key값 : value값
+    initialState,   // initialState 만 이름먹힘
+    reducers:{
+        add : (state,action) => {
+            nextId++;
+            state.push({
+                id : nextId,
+                text : action.payload,
+                complete : false,
+            })
+    },   
+    remove : (state, action) =>{ // 클릭한객체의 id와 action.payload(입력한값)의 id 비교
+        return state.filter(e => e.id !== action.payload)
     },
-    // Todo의 text상태 변경하기
-    edit: (state,action) => {
-        const {id, text} = action.payload
-        state.items = state.items.map(todo => todo.id === id ?
-        {...todo, text} : todo    
-        )
+
+    complete : (state, action) =>{                                    // !:이외의 나머지 !e true로 바뀜
+        return state.map(e => e.id === action.payload ? {...e, complete : !e.complete} : e)
     },
-    // Todo 삭제하기
-    remove: (state,action) => {
-        const id = action.payload
-        state.items = state.items.filter(todo => todo.id !== id)
-    },
-    // done상태에 따라 목록 필터링하기
-    filter: (state, action) => {
-        state.filterType = action.payload
-    },
-    // done: true인 목록 제거하기
-    clearCompleted: state => {
-        state.items = state.items.filter(todo => !todo.item)
-    },
-    // Todo 목록의 done 상태 변경하기
-    checkAll : state => {
-        const done = action.payload
-        state.items = state.items.map(todo => ({
-            ...todo,
-            done,
-        }))
+    all : (state) => {
+        state.value = initialState
     }
+
+
+}
 })
 
-export const {
-    add,
-    check,
-    edit,
-    remove,
-    filter,
-    clearCompleted,
-    checkAll,
-    } = todosSlice.actions
-
-
-export default todosSlice.reducer
+export const {add , remove, complete, all} = todoSlice.actions 
+//store에서 add, remove, complte 액션을 내보낸다.
+export default todoSlice.reducer
