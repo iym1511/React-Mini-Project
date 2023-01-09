@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { add} from '../redux/todo'
+import { add, all} from '../redux/todo'
 
 export default function InputTodo() {
     const dispatch = useDispatch()
@@ -14,16 +14,16 @@ export default function InputTodo() {
 
     function handleText(e) {
         setTodolist({ text: e.target.value })
+        console.log(todolist.text)
     }
 
     function onReset() {
         setTodolist({ text: "" })
-        console.log(todolist.text)
     }
 
 
     return (
-        <div style={{ border: "1px solid red" }}>
+        <div>
             <form onSubmit={(e) => {
                 e.preventDefault()
                 if (todolist.text !== "") {
@@ -38,7 +38,7 @@ export default function InputTodo() {
                     <input type="submit" value="+"></input>
                 </div>
             </form>
-            {/* <button onClick={() => { dispatch(all("")) }}>모두삭재</button> */}
+            <button onClick={() => { dispatch(all(), alert("전체삭제할거니?")) }}>전체삭제</button>
         </div>
 
     )

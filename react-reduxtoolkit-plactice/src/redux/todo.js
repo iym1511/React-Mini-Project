@@ -26,9 +26,9 @@ export const todoSlice = createSlice({
         return state.map(e => e.id === action.payload ? {...e, complete : !e.complete} : e)
     },
     all : (state) => {
-        state.value = initialState
+       return state=[]
     }
-
+// 원본통채로바꿀때 return
 
 }
 })

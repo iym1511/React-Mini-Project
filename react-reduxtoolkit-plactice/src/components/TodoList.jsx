@@ -16,8 +16,12 @@ export default function TodoList() {
         <li key={todolist[idx].id}>
             <input type="checkbox"
                 onChange={() => dispatch(complete(todolist[idx].id))} />
-            <div >{todo.complete === false ? <>{todo.text}</> : <del>{todo.text}</del>}</div>
-            <button type="button" onClick={() => dispatch(remove(todolist[idx].id))}>x</button>
+                    
+            <div >
+                {/* false면 밑줄x true면 밑줄o */}
+                {todo.complete === false ? <>{todo.text}</> : <del>{todo.text}</del>}
+            </div>
+            <button type="button" onClick={() => dispatch(remove(todolist[idx].id), alert("지울거니?"))}>x</button>
         </li>
     )
     )
